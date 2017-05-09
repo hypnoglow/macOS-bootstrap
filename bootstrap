@@ -1,0 +1,62 @@
+#!/bin/bash
+set -euo pipefail
+
+cd $(dirname ${BASH_SOURCE[0]})
+self_dir="$(dirname "$(pwd -P)/$(basename ${BASH_SOURCE[0]})")"
+cd - 1>/dev/null
+
+preload() {
+    . "${self_dir}/lib/ask.sh"
+
+    . "${self_dir}/scripts/packages.sh"
+    . "${self_dir}/scripts/tweaks.sh"
+    . "${self_dir}/scripts/apps.sh"
+}
+
+install_homebrew() {
+    if ! which brew 1>/dev/null ; then
+        echo "Install Homebrew..."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    taps=(
+        cask
+        versions
+        fonts
+    )
+    taps_installed="$(HOMEBREW_NO_AUTO_UPDATE=1 brew tap)"
+    for tap in ${taps[@]}; do
+        if ! echo "${taps_installed}" | grep -q "caskroom/${tap}"; then
+            echo "--> brew tap "caskroom/${tap}""
+            brew tap "caskroom/${tap}"
+        fi
+    done
+}
+
+main() {
+    preload
+
+    echo "Bootstrap started."
+
+    ask::construct true
+
+    install_homebrew
+
+    echo "--> brew update"
+    brew update
+
+    packages::install "${self_dir}/packages.list"
+
+    tweaks::switch_to_zsh
+
+    # Make some dirs
+    mkdir -p $HOME/go
+    mkdir -p $HOME/Screenshots
+
+    apps::nodejs-n
+
+    echo "Done bootstrapping!"
+}
+
+main "$@"
+exit 0

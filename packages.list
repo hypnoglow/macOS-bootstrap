@@ -1,0 +1,36 @@
+# Notes:
+# The # means comment;
+# The % means the package is from cask.
+
+#
+# Basic CLI tools
+#
+
+  zsh
+  wget
+  git
+  jq
+  shellcheck
+
+#
+# Programming
+#
+
+  go
+% atom
+% gogland
+% phpstorm
+% docker
+
+#
+# Common
+#
+
+% iterm2
+% bettertouchtool
+% google-chrome
+% telegram
+% skype
+% dropbox
+% font-fira-code
+% vlc

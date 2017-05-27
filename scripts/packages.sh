@@ -40,11 +40,11 @@ packages::install() {
 }
 
 packages::_install_one() {
-    local pakage_name="$1"
+    local package_name="$1"
     local cask="$2"
 
     echo "Install '${package_name}' ..."
-    cmd="brew ${cask} install "${package_name}""
+    cmd="brew ${cask} install ${package_name}"
     echo "--> ${cmd}"
     ${cmd}
 

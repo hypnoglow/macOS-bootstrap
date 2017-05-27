@@ -18,3 +18,19 @@ tweaks::switch_to_zsh() {
         chsh -s "${zsh}"
     fi
 }
+
+tweaks::set_screenshots_dir() {
+    local dirname="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Screenshots"
+
+    if [ "$(defaults read com.apple.screencapture location)" = "${dirname}" ]; then
+        return 0
+    fi
+
+    if [ ! -d "${dirname}" ]; then
+        mkdir -p "${dirname}"
+    fi
+
+    echo "Setting default Screenshots location to iCloud ..."
+    defaults write com.apple.screencapture location "${dirname}"
+    killall SystemUIServer
+}

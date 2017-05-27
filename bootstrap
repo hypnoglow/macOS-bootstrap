@@ -40,6 +40,11 @@ main() {
 
     ask::construct true
 
+    if ask::interactive "Check Software Updates (App Store)?"; then
+        softwareupdate -l
+        # TODO: install if any
+    fi
+
     install_homebrew
 
     echo "--> brew update"
@@ -48,6 +53,7 @@ main() {
     packages::install "${self_dir}/packages.list"
 
     tweaks::switch_to_zsh
+    tweaks::set_screenshots_dir
 
     # Make some dirs
     mkdir -p $HOME/go

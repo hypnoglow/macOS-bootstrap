@@ -11,6 +11,7 @@
   git
   jq
   shellcheck
+  tree
 
 #
 # Programming
@@ -21,6 +22,14 @@
 % gogland
 % phpstorm
 % docker
+  docker-completion
+  docker-compose-completion
+% github-desktop
+
+  mysql
+  mycli
+  postgresql
+  pgcli
 
 #
 # Common
@@ -31,6 +40,8 @@
 % google-chrome
 % telegram
 % skype
+% slack
 % dropbox
 % font-fira-code
 % vlc
+% karabiner-elements

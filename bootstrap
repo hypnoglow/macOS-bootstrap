@@ -11,6 +11,7 @@ preload() {
     . "${self_dir}/scripts/packages.sh"
     . "${self_dir}/scripts/tweaks.sh"
     . "${self_dir}/scripts/apps.sh"
+    . "${self_dir}/scripts/go.sh"
 }
 
 install_homebrew() {
@@ -38,6 +39,7 @@ main() {
 
     echo "Bootstrap started."
 
+
     ask::construct true
 
     if ask::interactive "Check Software Updates (App Store)?"; then
@@ -51,6 +53,8 @@ main() {
     brew update
 
     packages::install "${self_dir}/packages.list"
+
+    go::get_packages
 
     tweaks::switch_to_zsh
     tweaks::set_screenshots_dir

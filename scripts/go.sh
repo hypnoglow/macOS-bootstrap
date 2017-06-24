@@ -3,6 +3,9 @@
 go::get_packages() {
     local packages=(
         github.com/msoap/go-carpet
+        github.com/golang/dep
+        github.com/alecthomas/gometalinter
+        github.com/sqs/goreturns
     )
 
     for package in "${packages[@]}"; do

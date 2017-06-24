@@ -51,6 +51,13 @@ main() {
 
     echo "--> brew update"
     brew update
+    echo "--> brew outdated"
+    outdated=$(brew outdated --verbose)
+    echo -e "$outdated"
+    if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
+        echo "--> brew upgrade"
+        brew upgrade
+    fi
 
     packages::install "${self_dir}/packages.list"
 

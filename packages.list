@@ -12,6 +12,9 @@
   jq
   shellcheck
   tree
+  htop
+  httpie
+  siege
 
 #
 # Programming
@@ -31,6 +34,8 @@
   postgresql
   pgcli
 
+  composer
+
 #
 # Common
 #
@@ -38,6 +43,8 @@
 % iterm2-beta
 % bettertouchtool
 % google-chrome
+% google-hangouts
+% firefoxdeveloperedition
 % telegram
 % skype
 % slack
@@ -45,3 +52,7 @@
 % font-fira-code
 % vlc
 % karabiner-elements
+% keepassxc
+% megasync
+% virtualbox
+% vagrant

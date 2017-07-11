@@ -57,6 +57,8 @@ main() {
     if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
         echo "--> brew upgrade"
         brew upgrade
+        echo "--> brew cleanup"
+        brew cleanup
     fi
 
     packages::install "${self_dir}/packages.list"

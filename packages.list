@@ -15,6 +15,7 @@
   htop
   httpie
   siege
+  cloc
 
 #
 # Programming
@@ -24,10 +25,14 @@
 % atom
 % gogland
 % phpstorm
+% github-desktop
+
 % docker
   docker-completion
   docker-compose-completion
-% github-desktop
+  #docker-machine
+  #docker-machine-driver-xhyve
+  kubernetes-cli
 
   mysql
   mycli

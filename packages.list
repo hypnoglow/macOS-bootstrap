@@ -33,6 +33,7 @@
   #docker-machine
   #docker-machine-driver-xhyve
   kubernetes-cli
+% minikube
 
   mysql
   mycli

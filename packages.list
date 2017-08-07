@@ -16,6 +16,10 @@
   httpie
   siege
   cloc
+  ripgrep
+  watch
+
+  awscli
 
 #
 # Programming

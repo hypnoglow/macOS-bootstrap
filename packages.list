@@ -26,8 +26,9 @@
 #
 
   go
+% iterm2-beta
 % atom
-% gogland
+#% gogland
 % phpstorm
 % github-desktop
 
@@ -36,11 +37,13 @@
   docker-compose-completion
   docker-machine
   docker-machine-driver-xhyve
+% kitematic
 
   kubernetes-cli
   kubernetes-helm
 % minikube
 % kubernetic
+  kops
 
   mysql
   mycli
@@ -53,19 +56,28 @@
 # Common
 #
 
-% iterm2-beta
+% font-fira-code
+
+% authy-desktop
+
 % bettertouchtool
+% karabiner-elements
+
 % google-chrome
 % google-hangouts
 % firefoxdeveloperedition
+
 % telegram
 % skype
 % slack
-% dropbox
-% font-fira-code
+
 % vlc
-% karabiner-elements
-% keepassxc
+% mpv
+
+% dropbox
 % megasync
+% keepassxc
+% veracrypt
+
 % virtualbox
 % vagrant

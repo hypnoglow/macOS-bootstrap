@@ -43,8 +43,7 @@ main() {
     ask::construct true
 
     if ask::interactive "Check Software Updates (App Store)?"; then
-        softwareupdate -l
-        # TODO: install if any
+        sotfwareupdate -i -a
     fi
 
     install_homebrew

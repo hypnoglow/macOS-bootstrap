@@ -43,7 +43,7 @@ main() {
     ask::construct true
 
     if ask::interactive "Check Software Updates (App Store)?"; then
-        sotfwareupdate -i -a
+        softwareupdate -i -a
     fi
 
     install_homebrew
@@ -58,6 +58,15 @@ main() {
         brew upgrade
         echo "--> brew cleanup"
         brew cleanup
+    fi
+
+    echo "--> brew cask outdated"
+    outdated=$(brew cask outdated --verbose)
+    echo -e "$outdated"
+    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew cask outdated)?"; then
+        echo "--> brew cask reinstall $(brew cask outdated)"
+        brew cask outdated | xargs brew cask reinstall
+        brew cask cleanup
     fi
 
     packages::install "${self_dir}/packages.list"

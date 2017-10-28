@@ -18,6 +18,7 @@
   cloc
   ripgrep
   watch
+  hub
 
   awscli
 

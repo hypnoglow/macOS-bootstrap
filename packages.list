@@ -27,6 +27,7 @@
 #
 
   go
+  dep
 % iterm2-beta
 % atom
 #% gogland

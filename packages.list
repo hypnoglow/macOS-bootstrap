@@ -12,7 +12,7 @@
   jq
   shellcheck
   tree
-  htop
+#  htop
   httpie
   siege
   cloc

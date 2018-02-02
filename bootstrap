@@ -56,8 +56,8 @@ main() {
     if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
         echo "--> brew upgrade"
         brew upgrade
-        echo "--> brew cleanup"
-        brew cleanup
+        #echo "--> brew cleanup"
+        #brew cleanup
     fi
 
     echo "--> brew cask outdated"

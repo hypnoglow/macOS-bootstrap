@@ -44,6 +44,7 @@
 
   kubernetes-cli
   kubernetes-helm
+  kube-ps1
 % minikube
 % kubernetic
   kops

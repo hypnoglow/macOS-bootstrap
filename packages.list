@@ -12,19 +12,19 @@
   jq
   shellcheck
   tree
-#  htop
+  htop
   httpie
   siege
+  wrk
   cloc
   ripgrep
   watch
   hub
   tldr
-
-  awscli
+  neovim
 
 #
-# Programming
+# Development
 #
 
   go
@@ -41,6 +41,7 @@
   docker-machine
   docker-machine-driver-xhyve
 % kitematic
+  ctop
 
   kubernetes-cli
   kubernetes-helm
@@ -55,6 +56,13 @@
   pgcli
 
   composer
+
+# Clouds & Ops
+
+  awscli
+% google-cloud-sdk
+
+  terraform
 
 #
 # Common

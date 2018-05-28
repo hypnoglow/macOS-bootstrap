@@ -54,10 +54,10 @@ main() {
     outdated=$(brew outdated --verbose)
     echo -e "$outdated"
     if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
-        echo "--> brew upgrade"
-        brew upgrade
-        #echo "--> brew cleanup"
-        #brew cleanup
+        echo "--> brew upgrade --ignore-pinned"
+        brew upgrade --ignore-pinned
+        echo "--> brew cleanup --prune=60"
+        brew cleanup --prune=60
     fi
 
     echo "--> brew cask outdated"

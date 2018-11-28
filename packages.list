@@ -31,8 +31,7 @@
   dep
 % iterm2-beta
 % atom
-#% gogland
-% phpstorm
+% jetbrains-toolbox
 % github-desktop
 
 % docker
@@ -63,6 +62,8 @@
 % google-cloud-sdk
 
   terraform
+
+  getsentry/tools/sentry-cli
 
 #
 # Common

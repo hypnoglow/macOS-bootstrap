@@ -17,6 +17,8 @@ ask::ask() {
         exit 1
     fi
 
+    drain_stdin
+
     local question="$1"
     local answer
 
@@ -40,3 +42,10 @@ ask::interactive() {
     ask::ask "$1"
     return "$?"
 }
+
+drain_stdin() { 
+    old_tty_settings=`stty -g`
+    stty -icanon min 0 time 0
+    while read none; do :; done 
+    stty "$old_tty_settings"
+} 

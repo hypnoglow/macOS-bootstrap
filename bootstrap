@@ -39,7 +39,6 @@ main() {
 
     echo "Bootstrap started."
 
-
     ask::construct true
 
     if ask::interactive "Check Software Updates (App Store)?"; then

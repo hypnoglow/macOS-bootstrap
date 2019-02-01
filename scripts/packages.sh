@@ -20,31 +20,24 @@ packages::install() {
 
         # parse line
         local line_array=(${line})
-        local package_name
-        local cask=""
-        if [ -z "${line_array[1]-}" ]; then
-            package_name="${line_array[0]-}"
-        elif [ "${line_array[0]}" = "%" ]; then
-            package_name="${line_array[1]}"
-            cask="cask"
-        else
-            echo "Bad config format on line:"
-            echo "${line}"
-            exit 1
+        local package_name="${line_array[0]}"
+        local tap=""
+        if [[ "${line_array[1]-}" = "|" ]]; then
+            tap="${line_array[2]}"
         fi
 
-        if packages::_need_to_install "${package_name}" "${cask}"; then
-            packages::_install_one "${package_name}" "${cask}"
+        if packages::_need_to_install "${package_name}" "${tap}"; then
+            packages::_install_one "${package_name}" "${tap}"
         fi
     done < "${packages_file}"
 }
 
 packages::_install_one() {
     local package_name="$1"
-    local cask="$2"
+    local tap="$2"
 
     echo "Install '${package_name}' ..."
-    cmd="brew ${cask} install ${package_name}"
+    cmd="brew ${tap} install ${package_name}"
     echo "--> ${cmd}"
     ${cmd}
 
@@ -56,9 +49,9 @@ packages::_install_one() {
 
 packages::_need_to_install() {
     local package_name="$1"
-    local cask="$2"
+    local tap="$2"
 
-    if brew ${cask} list "${package_name}" &>/dev/null ; then
+    if brew ${tap} list "${package_name}" &>/dev/null ; then
         echo "Skip package '${package_name}': already installed."
         return 1
     fi

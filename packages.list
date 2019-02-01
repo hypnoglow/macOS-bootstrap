@@ -2,95 +2,140 @@
 # The # means comment;
 # The % means the package is from cask.
 
-#
-# Basic CLI tools
-#
+# asciinema
+# asciinema2gif
+# bitwarden
+# boostnote
+# franz
+# gifify
+# gifsicle
+# github-desktop | cask
+# jasper | cask
+# joplin | cask
+# keycastr | cask
+# ngrok | cask
+# notion | cask
+# obs | cask
+# osxfuse | cask
+# pgadmin3 | cask
+# pgadmin4 | cask
+# postbird | cask
+# postman | cask
+# soundnode | cask
+# standard-notes | cask
+# steam | cask
+# tagspaces | cask
+# teamviewer | cask
+# turtl | cask
+# vimr | cask
+# whatsapp | cask
+# xmind | cask
+# youtube-dl
 
-  zsh
-  wget
-  git
-  jq
-  shellcheck
-  tree
-  htop
-  httpie
-  siege
-  wrk
-  cloc
-  ripgrep
-  watch
-  hub
-  tldr
-  neovim
-
-#
-# Development
-#
-
-  go
-  dep
-% iterm2-beta
-% atom
-% jetbrains-toolbox
-% github-desktop
-
-% docker
-  docker-completion
-  docker-compose-completion
-  docker-machine
-  docker-machine-driver-xhyve
-% kitematic
-  ctop
-
-  kubernetes-cli
-  kubernetes-helm
-  kube-ps1
-% minikube
-% kubernetic
-  kops
-
-  mysql
-  mycli
-  postgresql
-  pgcli
-
-  composer
-
-# Clouds & Ops
-
-  awscli
-% google-cloud-sdk
-
-  terraform
-
-  getsentry/tools/sentry-cli
-
-#
-# Common
-#
-
-% font-fira-code
-
-% authy-desktop
-
-% bettertouchtool
-% karabiner-elements
-
-% google-chrome
-% google-hangouts
-% firefox-developer-edition
-
-% telegram
-% skype
-% slack
-
-% vlc
-% mpv
-
-% dropbox
-% megasync
-% keepassxc
-% veracrypt
-
-% virtualbox
-% vagrant
+ansible
+atom | cask
+authy-desktop | cask
+avro-tools
+awscli
+bash
+bat
+bettertouchtool | cask
+cakebrew | cask
+cfssl
+cloc
+composer
+ctop
+curl
+dash | cask
+dep
+devdocs | cask
+direnv
+docker | cask
+docker-completion
+docker-compose-completion
+docker-machine
+docker-machine-driver-xhyve
+doctl
+dropbox | cask
+evernote | cask
+fd
+firefox | cask
+firefox-developer-edition | cask
+font-fira-code | cask
+fzf
+gcc
+getsentry/tools/sentry-cli
+git
+gnu-sed
+gnu-tar
+go
+golangci-lint
+google-chrome | cask
+google-chrome-canary | cask
+google-cloud-sdk | cask
+google-hangouts | cask
+goreleaser
+grpc
+htop
+httpie
+hub
+insomnia
+iterm2 | cask
+jetbrains-toolbox | cask
+jq
+kafkacat
+karabiner-elements | cask
+keepassxc | cask
+keybase | cask
+kitematic | cask
+kops
+kube-ps1
+kubernetes-cli
+kubernetes-helm
+kubernetic | cask
+kustomize
+magic-wormhole
+mattermost | cask
+megasync | cask
+minikube | cask
+mpv | cask
+mycli
+mysql
+neovim
+openssl
+opera-developer | cask
+pgcli
+postgresql
+pre-commit
+protobuf
+qbittorrent | cask
+raindropio | cask
+ripgrep
+rust
+shellcheck
+siege
+skaffold
+skype | cask
+slack | cask
+soundcleod | cask
+sshuttle
+telegram | cask
+terraform
+tig
+tldr
+tree
+tunnelblick | cask
+vagrant | cask
+vault
+veracrypt | cask
+vim
+virtualbox | cask
+visual-studio-code | cask
+vlc | cask
+watch
+wget
+wireguard-go
+wireguard-tools
+wrk
+ydiff
+zsh

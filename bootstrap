@@ -37,7 +37,13 @@ install_homebrew() {
 main() {
     preload
 
-    echo "Bootstrap started."
+    if [[ -z "${1-}" ]] ; then
+        echo "Profile name not specified. Run \"./bootstrap <profile_name>\" to specify."
+        exit 1
+    fi
+    profile_name="$1"
+
+    echo "Bootstrap started for profile \"${profile_name}\"."
 
     ask::construct true
 
@@ -72,6 +78,7 @@ main() {
 
     go::get_packages
 
+    tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh
     tweaks::set_screenshots_dir
 

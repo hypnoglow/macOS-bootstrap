@@ -34,3 +34,11 @@ tweaks::set_screenshots_dir() {
     defaults write com.apple.screencapture location "${dirname}"
     killall SystemUIServer
 }
+
+tweaks::hostname() {
+    local hostname="$1"
+    if [[ "$(hostname -s)" != "${hostname}" ]] ; then
+        echo "--> Set hostname \"${hostname}\""
+        hostname ${hostname}
+    fi
+}

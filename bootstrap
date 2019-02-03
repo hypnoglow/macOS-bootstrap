@@ -76,8 +76,6 @@ main() {
 
     packages::install "${self_dir}/packages.list"
 
-    go::get_packages
-
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh
     tweaks::set_screenshots_dir
@@ -86,7 +84,9 @@ main() {
     mkdir -p $HOME/go
     mkdir -p $HOME/Screenshots
 
-    apps::nodejs-n
+    # temporary disabled.
+    #go::get_packages
+    #apps::nodejs-n
 
     echo "Done bootstrapping!"
 }

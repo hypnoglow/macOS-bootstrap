@@ -9,6 +9,7 @@ preload() {
     . "${self_dir}/lib/ask.sh"
 
     . "${self_dir}/scripts/packages.sh"
+    . "${self_dir}/scripts/mas.sh"
     . "${self_dir}/scripts/tweaks.sh"
     . "${self_dir}/scripts/apps.sh"
     . "${self_dir}/scripts/go.sh"
@@ -75,6 +76,7 @@ main() {
     fi
 
     packages::install "${self_dir}/packages.list"
+    mas::install_all "${self_dir}/packages-mas.list"
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh

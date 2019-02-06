@@ -7,9 +7,12 @@
 # bitwarden
 # boostnote
 # franz
+# getsentry/tools/sentry-cli
 # gifify
 # gifsicle
 # github-desktop | cask
+# golangci-lint
+# insomnia
 # jasper | cask
 # joplin | cask
 # keycastr | cask
@@ -32,9 +35,10 @@
 # xmind | cask
 # youtube-dl
 
+android-file-transfer | cask
 ansible
 atom | cask
-authy-desktop | cask
+authy | cask
 avro-tools
 awscli
 bash
@@ -64,12 +68,10 @@ firefox-developer-edition | cask
 font-fira-code | cask
 fzf
 gcc
-getsentry/tools/sentry-cli
 git
 gnu-sed
 gnu-tar
 go
-golangci-lint
 google-chrome | cask
 google-chrome-canary | cask
 google-cloud-sdk | cask
@@ -79,7 +81,6 @@ grpc
 htop
 httpie
 hub
-insomnia
 iterm2 | cask
 jetbrains-toolbox | cask
 jq
@@ -95,6 +96,7 @@ kubernetes-helm
 kubernetic | cask
 kustomize
 magic-wormhole
+mas
 mattermost | cask
 megasync | cask
 minikube | cask
@@ -119,6 +121,7 @@ skype | cask
 slack | cask
 soundcleod | cask
 sshuttle
+stern
 telegram | cask
 terraform
 tig

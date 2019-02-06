@@ -22,15 +22,15 @@ install_homebrew() {
     fi
 
     taps=(
-        cask
-        versions
-        fonts
+        homebrew/cask
+        homebrew/cask-versions
+        homebrew/cask-fonts
     )
     taps_installed="$(HOMEBREW_NO_AUTO_UPDATE=1 brew tap)"
     for tap in "${taps[@]}"; do
-        if ! echo "${taps_installed}" | grep -q "caskroom/${tap}"; then
-            echo "--> brew tap "caskroom/${tap}""
-            brew tap "caskroom/${tap}"
+        if ! echo "${taps_installed}" | grep -q "${tap}"; then
+            echo "--> brew tap "${tap}""
+            brew tap "${tap}"
         fi
     done
 }

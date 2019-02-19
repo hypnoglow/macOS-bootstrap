@@ -103,6 +103,7 @@ minikube | cask
 mpv | cask
 mycli
 mysql
+ncdu
 neovim
 openssl
 opera-developer | cask

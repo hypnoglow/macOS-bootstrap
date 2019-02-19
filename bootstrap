@@ -86,8 +86,8 @@ main() {
     mkdir -p $HOME/go
     mkdir -p $HOME/Screenshots
 
+    go::get_packages
     # temporary disabled.
-    #go::get_packages
     #apps::nodejs-n
 
     echo "Done bootstrapping!"

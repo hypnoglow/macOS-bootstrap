@@ -39,6 +39,6 @@ tweaks::hostname() {
     local hostname="$1"
     if [[ "$(hostname -s)" != "${hostname}" ]] ; then
         echo "--> Set hostname \"${hostname}\""
-        hostname ${hostname}
+        sudo hostname ${hostname}
     fi
 }

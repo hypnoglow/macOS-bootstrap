@@ -3,11 +3,11 @@
 go::get_packages() {
     if [ ! -x "$(which go 2>/dev/null)" ]; then
         echo "Go is not installed, skip installing go packages"
-	return
+        return
     fi
     if [ -z "${GOPATH:-}" ]; then
         echo "GOPATH is not defined, skip installing go packages"
-	return
+        return
     fi
 
     local packages=(

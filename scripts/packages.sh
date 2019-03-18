@@ -6,12 +6,17 @@
 ################################################################################
 
 packages::install() {
-    echo "Check and install packages..."
+    echo "Check and install brew packages..."
 
-    set -f # disable globbing because of special characters in packages file.
     local packages_file="$1"
     local line
 
+    if [[ ! -r "${packages_file}" ]]; then
+        echo "File ${packages_file} does not exist" >&2
+        return 1
+    fi
+
+    set -f # disable globbing because of special characters in packages file.
     while IFS='' read -r line || [[ -n "${line}" ]]; do
         # Skip comments and empty lines
         if [[ "${line}" =~ ^# || -z "${line}" ]]; then

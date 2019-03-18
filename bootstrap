@@ -75,8 +75,8 @@ main() {
         # brew cask cleanup
     fi
 
-    packages::install "${self_dir}/packages.list"
-    mas::install_all "${self_dir}/packages-mas.list"
+    packages::install "${self_dir}/profiles/${profile_name}/brew.list"
+    mas::install_all "${self_dir}/profiles/${profile_name}/mas.list"
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh

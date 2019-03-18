@@ -1,0 +1,74 @@
+# Notes:
+# The # means comment;
+# The % means the package is from cask.
+
+android-file-transfer | cask
+ansible
+bash
+bat
+bettertouchtool | cask
+cfssl
+cloc
+curl
+dep
+direnv
+docker | cask
+docker-completion
+docker-compose-completion
+docker-machine
+docker-machine-driver-xhyve
+dropbox | cask
+fd
+firefox | cask
+font-fira-code | cask
+fzf
+gcc
+git
+gnu-sed
+gnu-tar
+go
+google-chrome | cask
+google-cloud-sdk | cask
+goreleaser
+grpc
+htop
+iterm2 | cask
+jetbrains-toolbox | cask
+jq
+karabiner-elements | cask
+keepassxc | cask
+kube-ps1
+kubernetes-cli
+kubernetes-helm
+kustomize
+mas
+megasync | cask
+minikube | cask
+mpv | cask
+ncdu
+neovim
+openssl
+pgcli
+postgresql
+pre-commit
+protobuf
+raindropio | cask
+ripgrep
+rust
+shellcheck
+skaffold
+slack | cask
+soundcleod | cask
+stern
+telegram | cask
+terraform
+tldr
+tree
+tunnelblick | cask
+vim
+virtualbox | cask
+visual-studio-code | cask
+watch
+wget
+ydiff
+zsh

@@ -5,6 +5,8 @@
 # Installs packages.
 ################################################################################
 
+declare -g -A _installed
+
 packages::install() {
     echo "Check and install brew packages..."
 
@@ -15,6 +17,9 @@ packages::install() {
         echo "File ${packages_file} does not exist" >&2
         return 1
     fi
+
+    _installed["core"]="$(brew list -1)"
+    _installed["cask"]="$(brew cask list -1)"
 
     set -f # disable globbing because of special characters in packages file.
     while IFS='' read -r line || [[ -n "${line}" ]]; do
@@ -31,7 +36,7 @@ packages::install() {
             tap="${line_array[2]}"
         fi
 
-        if packages::_need_to_install "${package_name}" "${tap}"; then
+        if packages::_need_to_install "${package_name}" "${tap}" ; then
             packages::_install_one "${package_name}" "${tap}"
         fi
     done < "${packages_file}"
@@ -55,6 +60,20 @@ packages::_install_one() {
 packages::_need_to_install() {
     local package_name="$1"
     local tap="$2"
+
+    # If we have prepared list of installed packages for this tap (or core),
+    # then we can check very fast.
+
+    tap_key="${tap:-core}"
+    if [[ ${_installed[$tap_key]+_} ]]; then
+        if echo "${_installed[$tap_key]}" | grep -q -e "^${package_name}$" ; then
+            echo "Skip package '${package_name}' - already installed."
+            return 1
+        fi
+        return 0
+    fi
+
+    # Fallback to slow check.
 
     if brew ${tap} list "${package_name}" &>/dev/null ; then
         echo "Skip package '${package_name}': already installed."

@@ -1,8 +1,9 @@
-#!/bin/bash
-# WARNING! This file should not be executed directly.
-# Shebang here is for shellcheck.
+# shellcheck shell=ksh
+#
+# Package management using mas.
+################################################################################
 
-mas::install_all() {
+mas::reconcile() {
     echo "Check and install mas packages..."
 
     local packages_file="$1"

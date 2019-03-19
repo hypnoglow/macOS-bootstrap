@@ -8,31 +8,11 @@ cd - 1>/dev/null
 preload() {
     . "${self_dir}/lib/ask.sh"
 
-    . "${self_dir}/scripts/packages.sh"
+    . "${self_dir}/scripts/brew.sh"
     . "${self_dir}/scripts/mas.sh"
     . "${self_dir}/scripts/tweaks.sh"
     . "${self_dir}/scripts/apps.sh"
     . "${self_dir}/scripts/go.sh"
-}
-
-install_homebrew() {
-    if ! which brew 1>/dev/null ; then
-        echo "Install Homebrew..."
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-
-    taps=(
-        homebrew/cask
-        homebrew/cask-versions
-        homebrew/cask-fonts
-    )
-    taps_installed="$(HOMEBREW_NO_AUTO_UPDATE=1 brew tap)"
-    for tap in "${taps[@]}"; do
-        if ! echo "${taps_installed}" | grep -q "${tap}"; then
-            echo "--> brew tap "${tap}""
-            brew tap "${tap}"
-        fi
-    done
 }
 
 main() {
@@ -52,31 +32,13 @@ main() {
         softwareupdate -i -a
     fi
 
-    install_homebrew
+    brew::install_homebrew
+    brew::update
+    brew::upgrade_core
+    brew::upgrade_cask
 
-    echo "--> brew update"
-    brew update
-    echo "--> brew outdated"
-    outdated=$(brew outdated --verbose)
-    echo -e "$outdated"
-    if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
-        echo "--> brew upgrade --ignore-pinned"
-        brew upgrade --ignore-pinned
-        # echo "--> brew cleanup --prune=300"
-        # brew cleanup --prune=300
-    fi
-
-    echo "--> brew cask outdated"
-    outdated=$(brew cask outdated --verbose)
-    echo -e "$outdated"
-    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew cask outdated)?"; then
-        echo "--> brew cask reinstall $(brew cask outdated)"
-        brew cask outdated | xargs brew cask reinstall
-        # brew cask cleanup
-    fi
-
-    packages::install "${self_dir}/profiles/${profile_name}/brew.list"
-    mas::install_all "${self_dir}/profiles/${profile_name}/mas.list"
+    brew::reconcile "${self_dir}/profiles/${profile_name}/brew.list"
+    mas::reconcile "${self_dir}/profiles/${profile_name}/mas.list"
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh

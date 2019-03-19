@@ -1,13 +1,11 @@
-#!/bin/bash
-# WARNING! This file should not be executed directly.
-# Shebang here is for shellcheck.
+# shellcheck shell=ksh
 #
-# Installs packages.
+# Package management using Homebrew.
 ################################################################################
 
 declare -g -A _installed
 
-packages::install() {
+brew::reconcile() {
     echo "Check and install brew packages..."
 
     local packages_file="$1"
@@ -36,13 +34,61 @@ packages::install() {
             tap="${line_array[2]}"
         fi
 
-        if packages::_need_to_install "${package_name}" "${tap}" ; then
-            packages::_install_one "${package_name}" "${tap}"
+        if brew::_need_to_install "${package_name}" "${tap}" ; then
+            brew::_install_one "${package_name}" "${tap}"
         fi
     done < "${packages_file}"
 }
 
-packages::_install_one() {
+brew::install_homebrew() {
+    if ! which brew 1>/dev/null ; then
+        echo "Install Homebrew..."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    taps=(
+        homebrew/cask
+        homebrew/cask-versions
+        homebrew/cask-fonts
+    )
+    taps_installed="$(HOMEBREW_NO_AUTO_UPDATE=1 brew tap)"
+    for tap in "${taps[@]}"; do
+        if ! echo "${taps_installed}" | grep -q "${tap}"; then
+            echo "--> brew tap "${tap}""
+            brew tap "${tap}"
+        fi
+    done
+}
+
+brew::update() {
+    echo "--> brew update"
+    brew update
+}
+
+brew::upgrade_core() {
+    echo "--> brew outdated"
+    outdated=$(brew outdated --verbose)
+    echo -e "$outdated"
+    if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
+        echo "--> brew upgrade --ignore-pinned"
+        brew upgrade --ignore-pinned
+        # echo "--> brew cleanup --prune=300"
+        # brew cleanup --prune=300
+    fi
+}
+
+brew::upgrade_cask() {
+    echo "--> brew cask outdated"
+    outdated=$(brew cask outdated --verbose)
+    echo -e "$outdated"
+    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew cask outdated)?"; then
+        echo "--> brew cask reinstall $(brew cask outdated)"
+        brew cask outdated | xargs brew cask reinstall
+        # brew cask cleanup
+    fi
+}
+
+brew::_install_one() {
     local package_name="$1"
     local tap="$2"
 
@@ -57,7 +103,7 @@ packages::_install_one() {
     fi
 }
 
-packages::_need_to_install() {
+brew::_need_to_install() {
     local package_name="$1"
     local tap="$2"
 

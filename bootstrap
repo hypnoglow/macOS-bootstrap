@@ -35,7 +35,7 @@ main() {
     brew::install_homebrew
     brew::update
     brew::upgrade_core
-    brew::upgrade_cask
+    brew::upgrade_cask "${self_dir}/profiles/${profile_name}/brew_cask_pinned.list"
 
     brew::reconcile "${self_dir}/profiles/${profile_name}/brew.list"
     mas::reconcile "${self_dir}/profiles/${profile_name}/mas.list"

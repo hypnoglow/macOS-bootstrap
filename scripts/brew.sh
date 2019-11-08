@@ -79,13 +79,43 @@ brew::upgrade_core() {
 
 brew::upgrade_cask() {
     echo "--> brew cask outdated"
-    outdated=$(brew cask outdated --verbose)
+    outdated=$(brew::_cask_outdated "$1" --verbose)
     echo -e "$outdated"
     if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew cask outdated)?"; then
-        echo "--> brew cask reinstall $(brew cask outdated)"
-        brew cask outdated | xargs brew cask reinstall
+        echo "--> brew cask reinstall \$(brew cask outdated)"
+        brew::_cask_outdated "$1" | xargs brew cask reinstall
         # brew cask cleanup
     fi
+}
+
+brew::_cask_outdated() {
+    local pins_file="${1:-}"
+    local args="${2:-}"
+    local line
+
+    if [[ -z "${pins_file}" ]]; then
+        brew cask outdated ${args}
+        return 0
+    fi
+
+    if [[ ! -r "${pins_file}" ]]; then
+        echo "File ${pins_file} does not exist" >&2
+        return 1
+    fi
+
+    outdated=$(brew cask outdated ${args})
+
+    while IFS='' read -r line || [[ -n "${line}" ]]; do
+        # Skip comments and empty lines
+        if [[ "${line}" =~ ^# || -z "${line}" ]]; then
+            continue
+        fi
+
+        local package_name="${line}"
+        outdated=$(echo -e "${outdated}" | grep -v -e "^${package_name}")
+    done < "${pins_file}"
+
+    echo -e "${outdated}"
 }
 
 brew::_install_one() {

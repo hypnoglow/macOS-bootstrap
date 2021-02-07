@@ -1,28 +1,40 @@
 # Notes:
 # The # means comment;
-# The % means the package is from cask.
+# The `package | cask` means the package is from cask.
 
 android-file-transfer | cask
 ansible
+# asciinema
+# asciinema2gif
+# authy | cask
+# awscli
 bash
 bat
 bettertouchtool | cask
+# bitwarden
+# cakebrew | cask
 cfssl
 cloc
 curl
-dep
+# dash | cask
+# devdocs | cask
 direnv
 docker | cask
 docker-completion
 docker-compose-completion
 docker-machine
 docker-machine-driver-xhyve
+# doctl
 dropbox | cask
 fd
 firefox | cask
 font-fira-code | cask
 fzf
 gcc
+# getsentry/tools/sentry-cli
+gh
+# gifify
+# gifsicle
 git
 gnu-sed
 gnu-tar
@@ -32,43 +44,61 @@ google-cloud-sdk | cask
 goreleaser
 grpc
 htop
+# insomnia
 iterm2 | cask
 jetbrains-toolbox | cask
 jq
 karabiner-elements | cask
-keepassxc | cask
+# keepassxc | cask
+# keycastr | cask
 kube-ps1
 kubernetes-cli
 kubernetes-helm
 kustomize
+lens | cask
+# magic-wormhole
 mas
 megasync | cask
 minikube | cask
 mpv | cask
 ncdu
 neovim
-openssl
+# notion | cask
+# obs | cask
+openssl@1.1
+# osxfuse | cask
 pgcli
 postgresql
 pre-commit
 protobuf
-raindropio | cask
+# qbittorrent | cask
 ripgrep
-rust
+rustup-init
 shellcheck
 skaffold
+skype | cask
 slack | cask
 soundcleod | cask
+# sshuttle
+starship
 stern
 telegram | cask
 terraform
 tldr
 tree
 tunnelblick | cask
+# vagrant | cask
+# veracrypt | cask
 vim
 virtualbox | cask
 visual-studio-code | cask
+# vlc | cask
 watch
 wget
+# whatsapp | cask
+# wireguard-go
+wireguard-tools
+# xmind | cask
 ydiff
+# youtube-dl
 zsh

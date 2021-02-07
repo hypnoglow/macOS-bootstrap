@@ -1,6 +1,8 @@
 # shellcheck shell=ksh
 #
 # Package management using mas.
+# TODO:
+# - implement updates via "mas outdated"
 ################################################################################
 
 mas::reconcile() {

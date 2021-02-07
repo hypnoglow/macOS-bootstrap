@@ -16,8 +16,8 @@ brew::reconcile() {
         return 1
     fi
 
-    _installed["core"]="$(brew list -1)"
-    _installed["cask"]="$(brew cask list -1)"
+    _installed["core"]="$(brew list --formula -1)"
+    _installed["cask"]="$(brew list --cask -1)"
 
     set -f # disable globbing because of special characters in packages file.
     while IFS='' read -r line || [[ -n "${line}" ]]; do
@@ -78,11 +78,11 @@ brew::upgrade_core() {
 }
 
 brew::upgrade_cask() {
-    echo "--> brew cask outdated"
+    echo "--> brew outdated --cask"
     outdated=$(brew::_cask_outdated "$1" --verbose)
     echo -e "$outdated"
-    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew cask outdated)?"; then
-        echo "--> brew cask reinstall \$(brew cask outdated)"
+    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew outdated --cask)?"; then
+        echo "--> brew cask reinstall \$(brew outdated --cask)"
         brew::_cask_outdated "$1" | xargs brew cask reinstall
         # brew cask cleanup
     fi
@@ -94,7 +94,7 @@ brew::_cask_outdated() {
     local line
 
     if [[ -z "${pins_file}" ]]; then
-        brew cask outdated ${args}
+        brew outdated --cask ${args}
         return 0
     fi
 
@@ -103,7 +103,7 @@ brew::_cask_outdated() {
         return 1
     fi
 
-    outdated=$(brew cask outdated ${args})
+    outdated=$(brew outdated --cask ${args})
 
     while IFS='' read -r line || [[ -n "${line}" ]]; do
         # Skip comments and empty lines

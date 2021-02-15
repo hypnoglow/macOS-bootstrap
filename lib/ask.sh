@@ -43,9 +43,9 @@ ask::interactive() {
     return "$?"
 }
 
-drain_stdin() { 
+drain_stdin() {
     old_tty_settings=`stty -g`
     stty -icanon min 0 time 0
-    while read none; do :; done 
+    while read none; do :; done
     stty "$old_tty_settings"
-} 
+}

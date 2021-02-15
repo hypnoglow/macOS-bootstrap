@@ -28,8 +28,12 @@ main() {
 
     ask::construct true
 
-    if ask::interactive "Check Software Updates (App Store)?"; then
-        softwareupdate -i -a
+    if ask::interactive "Check macOS Software Updates?"; then
+        updates=$(softwareupdate -l -a)
+        echo -e "$updates"
+        if [ -n "$updates" ] && ask::interactive "Install Software Updates?"; then
+            softwareupdate -i -a
+        fi
     fi
 
     brew::install_homebrew

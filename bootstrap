@@ -29,9 +29,9 @@ main() {
     ask::construct true
 
     if ask::interactive "Check macOS Software Updates?"; then
-        updates=$(softwareupdate -l -a)
+        updates=$(softwareupdate -l -a 2>&1)
         echo -e "$updates"
-        if [ -n "$updates" ] && ask::interactive "Install Software Updates?"; then
+        if [ -n "$updates" ] && ! echo "$updates" | grep -q "No new software available" && ask::interactive "Install Software Updates?"; then
             softwareupdate -i -a
         fi
     fi

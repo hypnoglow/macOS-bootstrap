@@ -1,0 +1,77 @@
+# Notes:
+# 1) The # means comment;
+# 2) To install from specific taps, use fully-qualified name,
+#    e.g. 'homebrew/dupes/vim'.
+
+asdf
+# awscli
+bash
+bettertouchtool
+# cfssl
+# cloc
+curl
+# homebrew/cask/dash
+# devdocs
+direnv
+# homebrew/cask/docker
+# docker
+# docker-machine
+# fd
+# firefox
+font-fira-code
+# fzf
+# gcc
+# getsentry/tools/sentry-cli
+# gh
+git
+gnu-sed
+gnu-tar
+go
+google-chrome
+# grpc
+htop
+# httpie
+# insomnia
+iterm2
+jetbrains-toolbox
+jq
+karabiner-elements
+# kube-ps1
+# kubernetes-cli
+# helm
+# kustomize
+lazygit
+# lazydocker
+# lens
+# magic-wormhole
+mas
+# minikube
+ncdu
+neovim
+# notion
+# openssl@1.1
+# pgcli
+# postgresql@14
+# pre-commit
+# protobuf
+ripgrep
+shellcheck
+# skaffold
+slack
+# sshuttle
+starship
+# stern
+# terraform
+tldr
+tree
+tunnelblick
+# vagrant
+vim
+# virtualbox
+visual-studio-code
+watch
+wget
+# wireguard-go
+# wireguard-tools
+# ydiff
+zsh

@@ -1,34 +1,35 @@
 # Notes:
-# The # means comment;
-# The `package | cask` means the package is from cask.
+# 1) The # means comment;
+# 2) To install from specific taps, use fully-qualified name,
+#    e.g. 'homebrew/dupes/vim'.
 
-android-file-transfer | cask
+android-file-transfer
 ansible
 # asciinema
 # asciinema2gif
-# authy | cask
+# authy
 # awscli
 bash
 bat
-bettertouchtool | cask
+bettertouchtool
 # bitwarden
-# cakebrew | cask
+# cakebrew
 cfssl
 cloc
 curl
-# dash | cask
-# devdocs | cask
+# homebrew/cask/dash
+# devdocs
 direnv
-docker | cask
+docker
 docker-completion
 docker-compose-completion
 docker-machine
 docker-machine-driver-xhyve
 # doctl
-dropbox | cask
+dropbox
 fd
-firefox | cask
-font-fira-code | cask
+firefox
+font-fira-code
 fzf
 gcc
 # getsentry/tools/sentry-cli
@@ -39,66 +40,66 @@ git
 gnu-sed
 gnu-tar
 go
-google-chrome | cask
-google-cloud-sdk | cask
+google-chrome
+google-cloud-sdk
 goreleaser
 grpc
 htop
 # insomnia
-iterm2 | cask
-jetbrains-toolbox | cask
+iterm2
+jetbrains-toolbox
 jq
-karabiner-elements | cask
-# keepassxc | cask
-# keycastr | cask
+karabiner-elements
+# keepassxc
+# keycastr
 kube-ps1
 kubernetes-cli
-kubernetes-helm
+helm
 kustomize
-lens | cask
+lens
 # magic-wormhole
 mas
-megasync | cask
-minikube | cask
-mpv | cask
+megasync
+minikube
+mpv
 ncdu
 neovim
-# notion | cask
-# obs | cask
+# notion
+# obs
 openssl@1.1
-# osxfuse | cask
+# osxfuse
 pgcli
-postgresql
+postgresql@14
 pre-commit
 protobuf
-# qbittorrent | cask
+# qbittorrent
 ripgrep
 rustup-init
 shellcheck
 skaffold
-skype | cask
-slack | cask
-soundcleod | cask
+skype
+slack
+soundcleod
 # sshuttle
 starship
 stern
-telegram | cask
+telegram
 terraform
 tldr
 tree
-tunnelblick | cask
-# vagrant | cask
-# veracrypt | cask
+tunnelblick
+# vagrant
+# veracrypt
 vim
-virtualbox | cask
-visual-studio-code | cask
-# vlc | cask
+virtualbox
+visual-studio-code
+# vlc
 watch
 wget
-# whatsapp | cask
+# whatsapp
 # wireguard-go
 wireguard-tools
-# xmind | cask
+# xmind
 ydiff
 # youtube-dl
 zsh

@@ -15,18 +15,39 @@ preload() {
     . "${self_dir}/scripts/go.sh"
 }
 
+valid_profile() {
+    profiles=(
+        altair
+        pollux
+    )
+
+    printf '%s\0' "${profiles[@]}" | grep -q -F -x -z -- "${1}"
+    return $?
+}
+
 main() {
     preload
 
-    if [[ -z "${1-}" ]] ; then
-        echo "Profile name not specified. Run \"./bootstrap <profile_name>\" to specify."
-        exit 1
+    ask::construct true
+
+    profile_name="${1:-}"
+    if [[ -n "${profile_name}" ]] ; then
+        if ! valid_profile "${profile_name}" ; then
+            echo "Profile name '${profile_name}' is unknown."
+            exit 1
+        fi
+    else
+        hostname="${HOSTNAME%.*}"
+        if [[ -n "${hostname}" ]] && valid_profile "${hostname}"; then
+            profile_name="${hostname}"
+        fi
+        if [[ -z "${profile_name}" ]] ; then
+            echo "Profile name not specified. Run \"./bootstrap <profile_name>\" to specify."
+            exit 1
+        fi
     fi
-    profile_name="$1"
 
     echo "Bootstrap started for profile \"${profile_name}\"."
-
-    ask::construct true
 
     if ask::interactive "Check macOS Software Updates?"; then
         updates=$(softwareupdate -l -a 2>&1)
@@ -46,14 +67,15 @@ main() {
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh
-    tweaks::set_screenshots_dir
+    # TODO: temporary disabled, investigate.
+    #tweaks::set_screenshots_dir
 
     # Make some dirs
-    mkdir -p $HOME/go
-    mkdir -p $HOME/Screenshots
+    mkdir -p ${HOME}/go
+    mkdir -p ${HOME}/Screenshots
 
-    go::get_packages
-    # temporary disabled.
+    # TODO: temporary disabled, investigate.
+    #go::get_packages
     #apps::nodejs-n
 
     echo "Done bootstrapping!"

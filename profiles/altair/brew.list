@@ -1,51 +1,52 @@
 # Notes:
-# The # means comment;
-# The % means the package is from cask.
+# 1) The # means comment;
+# 2) To install from specific taps, use fully-qualified name,
+#    e.g. 'homebrew/dupes/vim'.
 
-android-file-transfer | cask
+android-file-transfer
 ansible
 awscli
 bash
 bat
-bettertouchtool | cask
-cakebrew | cask
+bettertouchtool
+cakebrew
 cfssl
 cloc
-composer
+composerb
 ctop
 curl
 dep
 direnv
-docker | cask
+docker
 docker-completion
 docker-compose-completion
 docker-machine
 docker-machine-driver-xhyve
-dropbox | cask
+dropbox
 fd
-firefox | cask
-firefox-developer-edition | cask
-font-fira-code | cask
+firefox
+firefox-developer-edition
+font-fira-code
 fzf
 gcc
 git
 gnu-sed
 gnu-tar
 go
-google-chrome | cask
-google-cloud-sdk | cask
+google-chrome
+google-cloud-sdk
 goreleaser
 grpc
 htop
 httpie
 hub
-iterm2 | cask
-jetbrains-toolbox | cask
+iterm2
+jetbrains-toolbox
 jq
 kafkacat
-karabiner-elements | cask
-keepassxc | cask
-keybase | cask
+karabiner-elements
+keepassxc
+keybase
 kops
 kube-ps1
 kubernetes-cli
@@ -53,9 +54,9 @@ kubernetes-helm
 kustomize
 magic-wormhole
 mas
-megasync | cask
-minikube | cask
-mpv | cask
+megasync
+minikube
+mpv
 mycli
 mysql
 ncdu
@@ -65,24 +66,24 @@ pgcli
 postgresql
 pre-commit
 protobuf
-raindropio | cask
+raindropio
 ripgrep
 rust
 shellcheck
 siege
 skaffold
-slack | cask
-soundcleod | cask
+slack
+soundcleod
 stern
-telegram | cask
+telegram
 terraform
 tig
 tldr
 tree
-tunnelblick | cask
+tunnelblick
 vim
-virtualbox | cask
-visual-studio-code | cask
+virtualbox
+visual-studio-code
 watch
 wget
 wrk

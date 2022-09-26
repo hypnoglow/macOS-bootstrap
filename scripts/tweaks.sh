@@ -5,6 +5,16 @@
 # Various system tweaks.
 ################################################################################
 
+tweaks::hostname() {
+    local hostname="$1"
+    if [[ "$(hostname -s)" != "${hostname}" ]] ; then
+        echo "Set hostname ..."
+        cmd="sudo hostname ${hostname}"
+        echo "--> ${cmd}"
+        ${cmd}
+    fi
+}
+
 tweaks::switch_to_zsh() {
     local zsh="/usr/local/bin/zsh"
 
@@ -33,12 +43,4 @@ tweaks::set_screenshots_dir() {
     echo "Setting default Screenshots location to iCloud ..."
     defaults write com.apple.screencapture location "${dirname}"
     killall SystemUIServer
-}
-
-tweaks::hostname() {
-    local hostname="$1"
-    if [[ "$(hostname -s)" != "${hostname}" ]] ; then
-        echo "--> Set hostname \"${hostname}\""
-        sudo hostname ${hostname}
-    fi
 }

@@ -3,7 +3,7 @@
 # Package management using Homebrew.
 ################################################################################
 
-declare -g -A _installed
+declare -g -a _installed
 
 brew::reconcile() {
     echo "Check and install brew packages..."
@@ -16,8 +16,7 @@ brew::reconcile() {
         return 1
     fi
 
-    _installed["core"]="$(brew list --formula -1)"
-    _installed["cask"]="$(brew list --cask -1)"
+    _installed="$(brew list --full-name -1)"
 
     set -f # disable globbing because of special characters in packages file.
     while IFS='' read -r line || [[ -n "${line}" ]]; do
@@ -29,13 +28,9 @@ brew::reconcile() {
         # parse line
         local line_array=(${line})
         local package_name="${line_array[0]}"
-        local tap=""
-        if [[ "${line_array[1]-}" = "|" ]]; then
-            tap="${line_array[2]}"
-        fi
 
-        if brew::_need_to_install "${package_name}" "${tap}" ; then
-            brew::_install_one "${package_name}" "${tap}"
+        if brew::_need_to_install "${package_name}" ; then
+            brew::_install_one "${package_name}"
         fi
     done < "${packages_file}"
 }
@@ -46,6 +41,8 @@ brew::install_homebrew() {
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
+    # TODO: do we still need it? We now install packages using fully-qualified
+    # name, so, probably, we don't need it.
     taps=(
         homebrew/cask
         homebrew/cask-versions
@@ -66,12 +63,12 @@ brew::update() {
 }
 
 brew::upgrade_core() {
-    echo "--> brew outdated"
-    outdated=$(brew outdated --verbose)
+    echo "--> brew outdated --formulae"
+    outdated=$(brew outdated --formulae --verbose)
     echo -e "$outdated"
-    if [ -n "$outdated" ] && ask::interactive "Run brew upgrade?"; then
-        echo "--> brew upgrade --ignore-pinned"
-        brew upgrade --ignore-pinned
+    if [ -n "$outdated" ] && ask::interactive "Run 'brew upgrade'?"; then
+        echo "--> brew upgrade --formulae --ignore-pinned"
+        brew upgrade --formulae --ignore-pinned
         # echo "--> brew cleanup --prune=300"
         # brew cleanup --prune=300
     fi
@@ -81,9 +78,9 @@ brew::upgrade_cask() {
     echo "--> brew outdated --cask"
     outdated=$(brew::_cask_outdated "$1" --verbose)
     echo -e "$outdated"
-    if [ -n "$outdated" ] && ask::interactive "Run brew cask reinstall \$(brew outdated --cask)?"; then
-        echo "--> brew cask reinstall \$(brew outdated --cask)"
-        brew::_cask_outdated "$1" | xargs brew cask reinstall
+    if [ -n "$outdated" ] && ask::interactive "Run 'brew upgrade'?"; then
+        echo "--> brew upgrade --cask \$(brew outdated --cask)"
+        brew::_cask_outdated "$1" | xargs brew upgrade --cask
         # brew cask cleanup
     fi
 }
@@ -120,10 +117,9 @@ brew::_cask_outdated() {
 
 brew::_install_one() {
     local package_name="$1"
-    local tap="$2"
 
     echo "Install '${package_name}' ..."
-    cmd="brew ${tap} install ${package_name}"
+    cmd="brew install ${package_name}"
     echo "--> ${cmd}"
     ${cmd}
 
@@ -135,24 +131,19 @@ brew::_install_one() {
 
 brew::_need_to_install() {
     local package_name="$1"
-    local tap="$2"
 
-    # If we have prepared list of installed packages for this tap (or core),
+    # If we have prepared list of installed packages,
     # then we can check very fast.
 
-    tap_key="${tap:-core}"
-    if [[ ${_installed[$tap_key]+_} ]]; then
-        if echo "${_installed[$tap_key]}" | grep -q -e "^${package_name}$" ; then
-            echo "Skip package '${package_name}' - already installed."
-            return 1
-        fi
-        return 0
+    if echo "${_installed}" | grep -q -e "^${package_name}$" ; then
+        echo "Skip package '${package_name}' - already installed (fast check)."
+        return 1
     fi
 
     # Fallback to slow check.
 
-    if brew ${tap} list "${package_name}" &>/dev/null ; then
-        echo "Skip package '${package_name}': already installed."
+    if brew list "${package_name}" &>/dev/null ; then
+        echo "Skip package '${package_name}' - already installed (slow check)."
         return 1
     fi
 

@@ -24,6 +24,7 @@ font-fira-code
 # getsentry/tools/sentry-cli
 # gh
 git
+git-delta
 gnu-sed
 gnu-tar
 go

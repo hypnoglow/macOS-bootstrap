@@ -22,9 +22,7 @@ curl
 direnv
 docker
 docker-completion
-docker-compose-completion
 docker-machine
-docker-machine-driver-xhyve
 # doctl
 dropbox
 fd

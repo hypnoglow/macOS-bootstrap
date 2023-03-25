@@ -6,12 +6,20 @@
 ################################################################################
 
 tweaks::hostname() {
-    local hostname="$1"
-    if [[ "$(hostname -s)" != "${hostname}" ]] ; then
-        echo "Set hostname ..."
-        cmd="sudo hostname ${hostname}"
-        echo "--> ${cmd}"
-        ${cmd}
+    local target_hostname="$1"
+
+    local current_hostname="$(scutil --get ComputerName)"
+    if [[ "${current_hostname}" != "${target_hostname}" ]] ; then
+        echo "Set ComputerName ..."
+        echo "--> scutil --set ComputerName ${target_hostname}"
+        scutil --set ComputerName ${target_hostname}
+    fi
+
+    local current_hostname="$(scutil --get LocalHostName)"
+    if [[ "${current_hostname}" != "${target_hostname}" ]] ; then
+        echo "Set LocalHostName ..."
+        echo "--> scutil --set LocalHostName ${target_hostname}"
+        scutil --set LocalHostName ${target_hostname}
     fi
 }
 

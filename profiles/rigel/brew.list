@@ -4,7 +4,7 @@
 #    e.g. 'homebrew/dupes/vim'.
 
 asdf
-# awscli
+authy
 bash
 bettertouchtool
 # cfssl
@@ -16,8 +16,10 @@ direnv
 # homebrew/cask/docker
 # docker
 # docker-machine
+
 # fd
 # firefox
+font-anonymous-pro
 font-fira-code
 # fzf
 # gcc
@@ -28,17 +30,21 @@ git-delta
 gnu-sed
 gnu-tar
 go
+go-task/tap/go-task
 google-chrome
 # grpc
+grpcurl
 htop
 # httpie
 # insomnia
+int128/kubelogin/kubelogin
 iterm2
 jetbrains-toolbox
 jq
 karabiner-elements
-# kube-ps1
-# kubernetes-cli
+kube-ps1
+kubectl
+kubectx
 # helm
 # kustomize
 lazygit
@@ -49,19 +55,21 @@ mas
 # minikube
 ncdu
 neovim
-# notion
+notion
 # openssl@1.1
 # pgcli
 # postgresql@14
 # pre-commit
 # protobuf
+raycast
 ripgrep
 shellcheck
 # skaffold
 slack
 # sshuttle
 starship
-# stern
+stern
+telegram
 # terraform
 tldr
 tree
@@ -76,3 +84,8 @@ wget
 # wireguard-tools
 # ydiff
 zsh
+
+# AWS
+awscli
+docker-credential-helper-ecr
+saml2aws

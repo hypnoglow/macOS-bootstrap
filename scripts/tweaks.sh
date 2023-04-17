@@ -24,7 +24,7 @@ tweaks::hostname() {
 }
 
 tweaks::switch_to_zsh() {
-    local zsh="/usr/local/bin/zsh"
+    local zsh="$(command -v zsh)"
 
     if ! grep -q "${zsh}" /etc/shells; then
         echo "Adding ${zsh} to /etc/shells ..."

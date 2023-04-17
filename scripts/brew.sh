@@ -18,6 +18,8 @@ brew::reconcile() {
 
     _installed="$(brew list --full-name -1)"
 
+    local -a packages
+
     set -f # disable globbing because of special characters in packages file.
     while IFS='' read -r line || [[ -n "${line}" ]]; do
         # Skip comments and empty lines
@@ -29,10 +31,15 @@ brew::reconcile() {
         local line_array=(${line})
         local package_name="${line_array[0]}"
 
+        packages+=(${package_name})
+    done < "${packages_file}"
+
+    for package_name in "${packages[@]}"
+    do
         if brew::_need_to_install "${package_name}" ; then
             brew::_install_one "${package_name}"
         fi
-    done < "${packages_file}"
+    done
 }
 
 brew::install_homebrew() {
@@ -119,9 +126,8 @@ brew::_install_one() {
     local package_name="$1"
 
     echo "Install '${package_name}' ..."
-    cmd="brew install ${package_name}"
-    echo "--> ${cmd}"
-    ${cmd}
+    echo "--> brew install ${package_name}"
+    brew install "${package_name}"
 
     if [ $? -ne 0 ]; then
         echo "Failed to install '${package_name}'" >&2

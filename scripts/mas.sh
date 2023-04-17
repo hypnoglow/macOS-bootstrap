@@ -39,9 +39,8 @@ mas::_install_one() {
     local app_id="$1"
 
     echo "Installing ${app_id} ..."
-    cmd="mas install ${app_id}"
-    echo "--> ${cmd}"
-    ${cmd}
+    echo "--> mas install ${app_id}"
+    mas install "${app_id}"
 
     if [ $? -ne 0 ]; then
         echo "Failed to install ${app_id}" >&2

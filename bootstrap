@@ -17,8 +17,8 @@ preload() {
 
 valid_profile() {
     profiles=(
-        altair
         pollux
+        rigel
     )
 
     printf '%s\0' "${profiles[@]}" | grep -q -F -x -z -- "${1}"

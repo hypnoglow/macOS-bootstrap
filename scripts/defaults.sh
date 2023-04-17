@@ -30,7 +30,7 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-time-modifier -float 1
-defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-delay -float 0.0001
 
 # Show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false

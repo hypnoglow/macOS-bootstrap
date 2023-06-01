@@ -4,10 +4,11 @@
 #    e.g. 'homebrew/dupes/vim'.
 
 android-file-transfer
-ansible
+# ansible
+# ansible-lint
 # asciinema
 # asciinema2gif
-# authy
+authy
 # awscli
 bash
 bat
@@ -24,7 +25,7 @@ docker
 docker-completion
 docker-machine
 # doctl
-dropbox
+# dropbox
 fd
 firefox
 font-fira-code
@@ -55,7 +56,6 @@ kube-ps1
 kubernetes-cli
 helm
 kustomize
-lens
 # magic-wormhole
 mas
 megasync
@@ -69,6 +69,7 @@ openssl@1.1
 # osxfuse
 pgcli
 postgresql@14
+postman
 pre-commit
 protobuf
 # qbittorrent
@@ -101,4 +102,5 @@ wireguard-tools
 # xmind
 ydiff
 # youtube-dl
+zoxide
 zsh

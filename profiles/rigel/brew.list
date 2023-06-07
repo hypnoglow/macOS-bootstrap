@@ -83,6 +83,7 @@ wget
 # wireguard-go
 # wireguard-tools
 # ydiff
+zoxide
 zsh
 
 # AWS

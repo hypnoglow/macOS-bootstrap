@@ -6,13 +6,13 @@
 ################################################################################
 
 mas::reconcile() {
-    echo "Check and install mas packages..."
+    log::info "Check and install mas packages..."
 
     local packages_file="$1"
     local line
 
     if [[ ! -r "${packages_file}" ]]; then
-        echo "File ${packages_file} does not exist" >&2
+        log::error "File ${packages_file} does not exist" >&2
         return 1
     fi
 
@@ -38,12 +38,12 @@ mas::reconcile() {
 mas::_install_one() {
     local app_id="$1"
 
-    echo "Installing ${app_id} ..."
-    echo "--> mas install ${app_id}"
+    log::info "Installing ${app_id} ..."
+    log::command "--> mas install ${app_id}"
     mas install "${app_id}"
 
     if [ $? -ne 0 ]; then
-        echo "Failed to install ${app_id}" >&2
+        log::error "Failed to install ${app_id}" >&2
         exit 1
     fi
 }
@@ -59,7 +59,7 @@ mas::_need_to_install() {
     set -e
 
     if [[ -n "${pkg}" ]] ; then
-        echo "$pkg - already installed."
+        log::debug "$pkg - already installed."
         return 1
     fi
 

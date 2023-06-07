@@ -7,16 +7,17 @@ cd - 1>/dev/null
 
 preload() {
     . "${self_dir}/lib/ask.sh"
+    . "${self_dir}/lib/log.sh"
 
     . "${self_dir}/scripts/brew.sh"
     . "${self_dir}/scripts/mas.sh"
     . "${self_dir}/scripts/tweaks.sh"
-    . "${self_dir}/scripts/apps.sh"
     . "${self_dir}/scripts/go.sh"
 }
 
 valid_profile() {
     profiles=(
+        antares
         pollux
         rigel
     )
@@ -33,7 +34,7 @@ main() {
     profile_name="${1:-}"
     if [[ -n "${profile_name}" ]] ; then
         if ! valid_profile "${profile_name}" ; then
-            echo "Profile name '${profile_name}' is unknown."
+            log::error "Profile name '${profile_name}' is unknown."
             exit 1
         fi
     else
@@ -42,12 +43,12 @@ main() {
             profile_name="${hostname}"
         fi
         if [[ -z "${profile_name}" ]] ; then
-            echo "Profile name not specified. Run \"./bootstrap <profile_name>\" to specify."
+            log::error "Profile name not specified. Run \"./bootstrap <profile_name>\" to specify."
             exit 1
         fi
     fi
 
-    echo "Bootstrap started for profile \"${profile_name}\"."
+    log::info "Bootstrap started for profile \"${profile_name}\"."
 
     if ask::interactive "Check macOS Software Updates?"; then
         updates=$(softwareupdate -l -a 2>&1)
@@ -76,9 +77,8 @@ main() {
 
     # TODO: temporary disabled, investigate.
     #go::get_packages
-    #apps::nodejs-n
 
-    echo "Done bootstrapping!"
+    log::info "Done bootstrapping!"
 }
 
 main "$@"

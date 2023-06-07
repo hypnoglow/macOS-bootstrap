@@ -2,6 +2,8 @@
 # This file contains automated macOS system preferences configuration.
 # TODO: make it conditional, and execute `killal {Dock/Finder}` only if there
 # were changes.
+#
+# Also see: https://macos-defaults.com
 
 #
 # System Preferences

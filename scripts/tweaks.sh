@@ -10,15 +10,15 @@ tweaks::hostname() {
 
     local current_hostname="$(scutil --get ComputerName)"
     if [[ "${current_hostname}" != "${target_hostname}" ]] ; then
-        echo "Set ComputerName ..."
-        echo "--> scutil --set ComputerName ${target_hostname}"
+        log::info "Set ComputerName ..."
+        log::command "--> scutil --set ComputerName ${target_hostname}"
         scutil --set ComputerName ${target_hostname}
     fi
 
     local current_hostname="$(scutil --get LocalHostName)"
     if [[ "${current_hostname}" != "${target_hostname}" ]] ; then
-        echo "Set LocalHostName ..."
-        echo "--> scutil --set LocalHostName ${target_hostname}"
+        log::info "Set LocalHostName ..."
+        log::command "--> scutil --set LocalHostName ${target_hostname}"
         scutil --set LocalHostName ${target_hostname}
     fi
 }
@@ -27,12 +27,12 @@ tweaks::switch_to_zsh() {
     local zsh="$(command -v zsh)"
 
     if ! grep -q "${zsh}" /etc/shells; then
-        echo "Adding ${zsh} to /etc/shells ..."
+        log::info "Adding ${zsh} to /etc/shells ..."
         echo "${zsh}" | sudo tee -a /etc/shells 1>/dev/null
     fi
 
-    if [ "$(dscl . -read /Users/hypnoglow UserShell | cut -d ' ' -f 2)" != "${zsh}" ]; then
-        echo "Changing shell to zsh ..."
+    if [ "$(dscl . -read "/Users/$(id -u -n)" UserShell | cut -d ' ' -f 2)" != "${zsh}" ]; then
+        log::info "Changing shell to zsh ..."
         chsh -s "${zsh}"
     fi
 }
@@ -48,7 +48,7 @@ tweaks::set_screenshots_dir() {
         mkdir -p "${dirname}"
     fi
 
-    echo "Setting default Screenshots location to iCloud ..."
+    log::info "Setting default Screenshots location to iCloud ..."
     defaults write com.apple.screencapture location "${dirname}"
     killall SystemUIServer
 }

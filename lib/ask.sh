@@ -13,7 +13,7 @@ ask::construct() {
 # Asks user a question $1 and returns 0 if he answered 'y' or 1 otherwise.
 ask::ask() {
     if [ -z "$1" ]; then
-        echo "Internal error: ask::ask() called without a question." >&2
+        log::error "Internal error: ask::ask() called without a question." >&2
         exit 1
     fi
 
@@ -22,7 +22,7 @@ ask::ask() {
     local question="$1"
     local answer
 
-    echo -n "$question [y/N]: "
+    echo -e -n "❔ $question \e[33m[y/N]\e[0m: "
     read -n 1 answer
     echo
     if [ "$answer" != "y" ] && [ "$answer" != "Y" ]; then

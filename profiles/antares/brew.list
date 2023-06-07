@@ -15,6 +15,7 @@ homebrew/cask/docker
 docker-credential-helper-ecr
 font-anonymous-pro
 font-fira-code
+fzf
 gh
 git
 git-delta

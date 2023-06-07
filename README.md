@@ -13,15 +13,13 @@ by tweaking and installing apps and packages, e.g. after a fresh installation.
 
 2. Install [Homebrew](https://brew.sh)
 
-3. Envoke `git`, you will be asked to install XCode CLI, install it.
-
-4. Install a fresh version bash to replace outdated macOS builtin bash:
+3. Install a fresh version of bash to replace outdated macOS builtin bash:
 
     ```shell
     brew install bash
     ```
 
-5. Run bootstrap with the profile name:
+4. Run bootstrap with the profile name:
 
     ```shell
     ./bootstrap <PROFILE_NAME>

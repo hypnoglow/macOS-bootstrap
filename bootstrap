@@ -38,7 +38,7 @@ main() {
             exit 1
         fi
     else
-        hostname="${HOSTNAME%.*}"
+        hostname="$(scutil --get ComputerName)"
         if [[ -n "${hostname}" ]] && valid_profile "${hostname}"; then
             profile_name="${hostname}"
         fi

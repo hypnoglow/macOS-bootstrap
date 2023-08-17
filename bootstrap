@@ -9,10 +9,10 @@ preload() {
     . "${self_dir}/lib/ask.sh"
     . "${self_dir}/lib/log.sh"
 
+    . "${self_dir}/scripts/apps.sh"
     . "${self_dir}/scripts/brew.sh"
     . "${self_dir}/scripts/mas.sh"
     . "${self_dir}/scripts/tweaks.sh"
-    . "${self_dir}/scripts/go.sh"
 }
 
 valid_profile() {
@@ -66,6 +66,8 @@ main() {
     brew::reconcile "${self_dir}/profiles/${profile_name}/brew.list"
     mas::reconcile "${self_dir}/profiles/${profile_name}/mas.list"
 
+    apps::install_go_apps
+
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh
     # TODO: temporary disabled, investigate.
@@ -74,9 +76,6 @@ main() {
     # Make some dirs
     mkdir -p ${HOME}/go
     mkdir -p ${HOME}/Screenshots
-
-    # TODO: temporary disabled, investigate.
-    #go::get_packages
 
     log::info "Done bootstrapping!"
 }

@@ -44,6 +44,7 @@ google-chrome
 google-cloud-sdk
 goreleaser
 grpc
+homebrew/cask-fonts/font-anonymice-nerd-font
 htop
 # insomnia
 iterm2
@@ -72,6 +73,7 @@ postgresql@14
 postman
 pre-commit
 protobuf
+pulumi/tap/pulumi
 # qbittorrent
 ripgrep
 rustup-init

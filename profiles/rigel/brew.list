@@ -5,6 +5,7 @@
 
 asdf
 authy
+# awscli
 bash
 bettertouchtool
 # cfssl
@@ -15,8 +16,8 @@ curl
 direnv
 # homebrew/cask/docker
 # docker
+# docker-credential-helper-ecr
 # docker-machine
-
 # fd
 # firefox
 font-anonymous-pro
@@ -32,8 +33,10 @@ gnu-tar
 go
 go-task/tap/go-task
 google-chrome
+# goreleaser
 # grpc
 grpcurl
+helm
 htop
 # httpie
 # insomnia
@@ -41,11 +44,12 @@ int128/kubelogin/kubelogin
 iterm2
 jetbrains-toolbox
 jq
+k9s
 karabiner-elements
 kube-ps1
 kubectl
 kubectx
-# helm
+kubelogin
 # kustomize
 lazygit
 # lazydocker
@@ -58,20 +62,26 @@ neovim
 notion
 # openssl@1.1
 # pgcli
+postman
 # postgresql@14
 # pre-commit
+pritunl
 # protobuf
+protonvpn
 raycast
 ripgrep
+saml2aws
 shellcheck
 # skaffold
 slack
+# sqlite
 # sshuttle
 starship
 stern
 telegram
 # terraform
 tldr
+todoist
 tree
 tunnelblick
 # vagrant
@@ -85,8 +95,3 @@ wget
 # ydiff
 zoxide
 zsh
-
-# AWS
-awscli
-docker-credential-helper-ecr
-saml2aws

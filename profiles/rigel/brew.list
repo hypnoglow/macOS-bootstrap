@@ -37,6 +37,7 @@ google-chrome
 # grpc
 grpcurl
 helm
+homebrew/cask-fonts/font-anonymice-nerd-font
 htop
 # httpie
 # insomnia

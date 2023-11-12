@@ -25,6 +25,7 @@ go
 go-task/tap/go-task
 google-chrome
 grpcurl
+homebrew/cask-fonts/font-anonymice-nerd-font
 htop
 int128/kubelogin/kubelogin
 iterm2
@@ -47,6 +48,7 @@ pgcli
 postgresql@14
 postman
 pritunl
+pulumi/tap/pulumi
 raycast
 ripgrep
 saml2aws

@@ -18,3 +18,8 @@ apps::install_go_apps() {
         GOBIN="${dir}" go install -v "${package}"
     done
 }
+
+apps::install_gh_extensions() {
+    log::command "gh extension install github/gh-copilot"
+    gh extension install github/gh-copilot
+}

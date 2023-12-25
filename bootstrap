@@ -67,6 +67,7 @@ main() {
     mas::reconcile "${self_dir}/profiles/${profile_name}/mas.list"
 
     apps::install_go_apps
+    apps::install_gh_extensions
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh

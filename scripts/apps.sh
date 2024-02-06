@@ -9,6 +9,7 @@ apps::install_go_apps() {
     local packages=(
         github.com/msoap/go-carpet@v1.10.0
         github.com/daixiang0/gci@v0.11.2
+        github.com/quasilyte/qbenchstat/cmd/qbenchstat@latest
     )
 
     local dir="${HOME}/go/bin"

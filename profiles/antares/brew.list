@@ -4,7 +4,6 @@
 #    e.g. 'homebrew/dupes/vim'.
 
 asdf
-authy
 awscli
 bash
 bettertouchtool

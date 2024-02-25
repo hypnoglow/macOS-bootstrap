@@ -74,8 +74,8 @@ brew::upgrade_core() {
     outdated=$(brew outdated --formulae --verbose)
     echo -e "$outdated"
     if [ -n "$outdated" ] && ask::interactive "Run 'brew upgrade'?"; then
-        log::command "--> brew upgrade --formulae --ignore-pinned"
-        brew upgrade --formulae --ignore-pinned
+        log::command "--> brew upgrade --formulae"
+        brew upgrade --formulae
         # echo "--> brew cleanup --prune=300"
         # brew cleanup --prune=300
     fi

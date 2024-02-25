@@ -1,13 +1,13 @@
 # macOS-bootstrap
 
-A simple script that brings macOS system to a consistent state
-by tweaking and installing apps and packages, e.g. after a fresh installation.
+A simple script that brings macOS system to a desired state. May be useful to run
+after a fresh installation or on a regular basis to reconcile the OS.
+
+Basically, the script tweaks the OS and installs and updates apps and packages.
 
 ## Usage
 
-    ./bootstrap
-
-## Fresh macOS installation
+### Fresh macOS installation
 
 1. Open Terminal app.
 
@@ -24,6 +24,14 @@ by tweaking and installing apps and packages, e.g. after a fresh installation.
     ```shell
     ./bootstrap <PROFILE_NAME>
     ```
+   
+### Reconcile
+
+Run bootstrap, the profile name is optional:
+
+ ```shell
+ ./bootstrap [PROFILE_NAME]
+ ```
 
 ## License
 

@@ -43,7 +43,7 @@ google-chrome
 google-cloud-sdk
 goreleaser
 grpc
-homebrew/cask-fonts/font-anonymice-nerd-font
+homebrew/cask/font-anonymice-nerd-font
 htop
 # insomnia
 iterm2

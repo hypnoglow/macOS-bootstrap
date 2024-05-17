@@ -25,6 +25,7 @@ fzf
 # gcc
 # getsentry/tools/sentry-cli
 # gh
+ghq
 git
 git-delta
 gnu-sed
@@ -36,7 +37,7 @@ google-chrome
 # grpc
 grpcurl
 helm
-homebrew/cask-fonts/font-anonymice-nerd-font
+homebrew/cask/font-anonymice-nerd-font
 htop
 # httpie
 # insomnia

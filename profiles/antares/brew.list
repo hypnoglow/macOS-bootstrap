@@ -24,7 +24,7 @@ go
 go-task/tap/go-task
 google-chrome
 grpcurl
-homebrew/cask-fonts/font-anonymice-nerd-font
+homebrew/cask/font-anonymice-nerd-font
 htop
 int128/kubelogin/kubelogin
 iterm2

@@ -71,6 +71,7 @@ pritunl
 protonvpn
 raycast
 ripgrep
+rsteube/tap/carapace # Trying out - shell completion
 saml2aws
 shellcheck
 # skaffold

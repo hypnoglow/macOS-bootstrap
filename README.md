@@ -33,6 +33,10 @@ Run bootstrap, the profile name is optional:
  ./bootstrap [PROFILE_NAME]
  ```
 
+## Docs
+
+[docs](docs/) directory contains some useful info on advanced macOS topics.
+
 ## License
 
 [MIT](https://github.com/hypnoglow/macOS-bootstrap/blob/master/LICENCE.md)

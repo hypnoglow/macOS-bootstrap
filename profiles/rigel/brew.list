@@ -69,6 +69,7 @@ postman
 pritunl
 # protobuf
 protonvpn
+proton-pass
 raycast
 ripgrep
 rsteube/tap/carapace # Trying out - shell completion
@@ -95,5 +96,6 @@ wget
 # wireguard-go
 # wireguard-tools
 # ydiff
+yt-dlp
 zoxide
 zsh

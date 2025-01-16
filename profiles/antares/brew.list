@@ -10,8 +10,9 @@ bettertouchtool
 coreutils
 curl
 direnv
-homebrew/cask/docker
 docker-credential-helper-ecr
+firefox
+firefox@developer-edition
 font-anonymous-pro
 font-fira-code
 fzf
@@ -24,6 +25,8 @@ go
 go-task/tap/go-task
 google-chrome
 grpcurl
+helm
+homebrew/cask/docker
 homebrew/cask/font-anonymice-nerd-font
 htop
 int128/kubelogin/kubelogin
@@ -35,7 +38,6 @@ karabiner-elements
 kube-ps1
 kubectl
 kubectx
-helm
 latest
 lazygit
 mas
@@ -50,6 +52,7 @@ pritunl
 pulumi/tap/pulumi
 raycast
 ripgrep
+rsteube/tap/carapace # shell completion
 saml2aws
 shellcheck
 slack
@@ -64,3 +67,12 @@ watch
 wget
 zoxide
 zsh
+
+#
+# macOS apps
+#
+
+# https://github.com/jordanbaird/Ice
+jordanbaird-ice
+
+meetingbar

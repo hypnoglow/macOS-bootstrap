@@ -13,12 +13,12 @@ curl
 # homebrew/cask/dash
 # devdocs
 direnv
-# homebrew/cask/docker
 # docker
 # docker-credential-helper-ecr
 # docker-machine
+homebrew/cask/docker
 # fd
-# firefox
+firefox
 font-anonymous-pro
 font-fira-code
 fzf
@@ -45,6 +45,7 @@ int128/kubelogin/kubelogin
 iterm2
 jetbrains-toolbox
 jq
+jordanbaird-ice
 k9s
 karabiner-elements
 kube-ps1

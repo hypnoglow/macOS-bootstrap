@@ -1,0 +1,55 @@
+# Notes:
+# 1) The # means comment;
+# 2) To install from specific taps, use fully-qualified name,
+#    e.g. 'homebrew/dupes/vim'.
+
+asdf
+bash
+curl
+direnv
+font-anonymous-pro
+font-jetbrains-mono
+fzf
+git
+git-delta
+gnu-sed
+gnu-tar
+go
+go-task/tap/go-task
+homebrew/cask/anki
+homebrew/cask/bettertouchtool
+homebrew/cask/brave-browser
+homebrew/cask/chatgpt
+homebrew/cask/claude
+homebrew/cask/dash
+homebrew/cask/docker
+homebrew/cask/firefox
+homebrew/cask/google-chrome
+homebrew/cask/iterm2
+homebrew/cask/jetbrains-toolbox
+homebrew/cask/jordanbaird-ice
+homebrew/cask/obsidian
+homebrew/cask/proton-pass
+homebrew/cask/protonvpn
+homebrew/cask/raycast
+homebrew/cask/slack
+homebrew/cask/telegram
+homebrew/cask/todoist
+homebrew/cask/visual-studio-code
+homebrew/cask/visual-studio-code@insiders
+jq
+lazydocker
+lazygit
+mas
+ncdu
+neovim
+ripgrep
+rsteube/tap/carapace
+starship
+tldr
+tree
+watch
+wget
+yt-dlp
+zoxide
+zsh

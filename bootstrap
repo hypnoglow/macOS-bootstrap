@@ -17,6 +17,7 @@ preload() {
 
 valid_profile() {
     profiles=(
+        acrux
         antares
         pollux
         rigel

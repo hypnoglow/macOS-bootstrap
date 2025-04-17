@@ -24,7 +24,7 @@ Basically, the script tweaks the OS and installs and updates apps and packages.
     ```shell
     ./bootstrap <PROFILE_NAME>
     ```
-   
+
 ### Reconcile
 
 Run bootstrap, the profile name is optional:
@@ -32,6 +32,14 @@ Run bootstrap, the profile name is optional:
  ```shell
  ./bootstrap [PROFILE_NAME]
  ```
+
+### Profiles
+
+Profile configuration files are located in [profiles](profiles/) under the name
+of the profile.
+
+**brew_cask_pinned.list** - if the file exists, the script will pin the casks
+listed in this file.
 
 ## Docs
 

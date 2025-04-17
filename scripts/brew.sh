@@ -45,23 +45,8 @@ brew::reconcile() {
 brew::install_homebrew() {
     if ! which brew 1>/dev/null ; then
         log::info "Install Homebrew..."
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-
-    # TODO: do we still need it? We now install packages using fully-qualified
-    # name, so, probably, we don't need it.
-    taps=(
-        homebrew/cask
-        homebrew/cask-versions
-        homebrew/cask-fonts
-    )
-    taps_installed="$(HOMEBREW_NO_AUTO_UPDATE=1 brew tap)"
-    for tap in "${taps[@]}"; do
-        if ! echo "${taps_installed}" | grep -q "${tap}"; then
-            log::command "--> brew tap "${tap}""
-            brew tap "${tap}"
-        fi
-    done
 }
 
 brew::update() {
@@ -97,14 +82,9 @@ brew::_cask_outdated() {
     local args="${2:-}"
     local line
 
-    if [[ -z "${pins_file}" ]]; then
+    if [[ -z "${pins_file}" || ! -r "${pins_file}" ]]; then
         brew outdated --cask ${args}
         return 0
-    fi
-
-    if [[ ! -r "${pins_file}" ]]; then
-        log::error "File ${pins_file} does not exist" >&2
-        return 1
     fi
 
     outdated=$(brew outdated --cask ${args})

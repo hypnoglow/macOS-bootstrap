@@ -8,6 +8,7 @@ asdf
 bash
 bettertouchtool
 # cfssl
+claude
 # cloc
 curl
 # homebrew/cask/dash
@@ -21,6 +22,7 @@ homebrew/cask/docker
 firefox
 font-anonymous-pro
 font-fira-code
+font-jetbrains-mono
 fzf
 # gcc
 # getsentry/tools/sentry-cli

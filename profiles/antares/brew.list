@@ -7,6 +7,7 @@ asdf
 awscli
 bash
 bettertouchtool
+claude
 coreutils
 curl
 direnv
@@ -15,6 +16,7 @@ firefox
 firefox@developer-edition
 font-anonymous-pro
 font-fira-code
+font-jetbrains-mono
 fzf
 gh
 git

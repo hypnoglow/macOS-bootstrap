@@ -39,6 +39,7 @@ google-chrome
 # grpc
 grpcurl
 helm
+hledger
 homebrew/cask/font-anonymice-nerd-font
 htop
 # httpie
@@ -74,6 +75,7 @@ pritunl
 protonvpn
 proton-pass
 raycast
+rclone
 ripgrep
 rsteube/tap/carapace # Trying out - shell completion
 saml2aws
@@ -84,6 +86,7 @@ slack
 # sshuttle
 starship
 stern
+sqlite
 telegram
 # terraform
 tldr

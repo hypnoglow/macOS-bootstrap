@@ -121,15 +121,21 @@ brew::_need_to_install() {
     # If we have prepared list of installed packages,
     # then we can check very fast.
 
+    # It seems there is no way to do `brew list` and get output as 'homebrew/cask/<package_name>'.
+    # Remove 'homebrew/cask/' prefix if present for comparison.
+    if [[ "${package_name}" == "homebrew/cask/"* ]]; then
+        package_name="${package_name#homebrew/cask/}"
+    fi
+
     if echo "${_installed}" | grep -q -e "^${package_name}$" ; then
-        log::debug "Skip package '${package_name}' - already installed (fast check)."
+        log::debug "Skip package '${package_name}' - already installed (🐎)."
         return 1
     fi
 
     # Fallback to slow check.
 
     if brew list "${package_name}" &>/dev/null ; then
-        log::debug "Skip package '${package_name}' - already installed (slow check)."
+        log::debug "Skip package '${package_name}' - already installed (🐢)."
         return 1
     fi
 

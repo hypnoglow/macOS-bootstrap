@@ -67,17 +67,13 @@ main() {
     brew::reconcile "${self_dir}/profiles/${profile_name}/brew.list"
     mas::reconcile "${self_dir}/profiles/${profile_name}/mas.list"
 
-    apps::install_go_apps
+    #apps::install_go_apps
     apps::install_gh_extensions
 
     tweaks::hostname ${profile_name}
     tweaks::switch_to_zsh
     # TODO: temporary disabled, investigate.
     #tweaks::set_screenshots_dir
-
-    # Make some dirs
-    mkdir -p ${HOME}/go
-    mkdir -p ${HOME}/Screenshots
 
     log::info "Done bootstrapping!"
 }

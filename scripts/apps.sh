@@ -21,6 +21,11 @@ apps::install_go_apps() {
 }
 
 apps::install_gh_extensions() {
+    if [ ! -x "$(which gh 2>/dev/null)" ]; then
+        log::info "gh is not installed, skip installing gh extensions"
+        return
+    fi
+
     log::command "gh extension install github/gh-copilot"
     gh extension install github/gh-copilot
 }

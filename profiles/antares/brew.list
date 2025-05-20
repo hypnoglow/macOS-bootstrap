@@ -19,6 +19,7 @@ font-fira-code
 font-jetbrains-mono
 fzf
 gh
+ghq
 git
 git-delta
 gnu-sed
@@ -34,6 +35,7 @@ htop
 int128/kubelogin/kubelogin
 iterm2
 jetbrains-toolbox
+jordanbaird-ice
 jq
 k9s
 karabiner-elements
@@ -43,6 +45,7 @@ kubectx
 latest
 lazygit
 mas
+meetingbar
 ncdu
 neovim
 notion
@@ -69,12 +72,3 @@ watch
 wget
 zoxide
 zsh
-
-#
-# macOS apps
-#
-
-# https://github.com/jordanbaird/Ice
-jordanbaird-ice
-
-meetingbar

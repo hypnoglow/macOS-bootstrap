@@ -4,6 +4,7 @@
 #    e.g. 'homebrew/dupes/vim'.
 
 anki
+appcleaner
 asdf
 bash
 bettertouchtool
@@ -13,32 +14,45 @@ claude
 curl
 dash
 direnv
-docker
+docker-desktop
+exiftool
+ffmpeg
 firefox
 font-anonymous-pro
 font-jetbrains-mono
 fzf
+gh
+ghostty
+ghq
 git
 git-delta
 gnu-sed
 gnu-tar
+gnupg
 go
 go-task/tap/go-task
 google-chrome
 hledger
-iterm2
+input-source-pro
+iterm2 # Deprecated
 jetbrains-toolbox
 jordanbaird-ice
 jq
+karabiner-elements
+keyclu # Testing
 keycombiner
+latest
 lazydocker
 lazygit
+macos-fuse-t/homebrew-cask/fuse-t # Testing, dependency for `rclone mount`
 mas
 ncdu
 neovim
+obs
 obsidian
 proton-pass
 protonvpn
+qbittorrent
 raycast
 rclone
 ripgrep
@@ -47,12 +61,15 @@ slack
 spotify
 sqlite
 starship
+superwhisper # Testing
 telegram
 tldr
-todoist
+todoist-app
 tree
+uv
 visual-studio-code
-visual-studio-code@insiders
+visual-studio-code@insiders # Deprecated
+voiceink
 watch
 wget
 yt-dlp

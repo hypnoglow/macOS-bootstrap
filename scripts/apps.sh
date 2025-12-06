@@ -26,6 +26,12 @@ apps::install_gh_extensions() {
         return
     fi
 
-    log::command "gh extension install github/gh-copilot"
-    gh extension install github/gh-copilot
+    local extensions=(
+        "dlvhdr/gh-dash"
+    )
+
+    for extension in "${extensions[@]}"; do
+        log::command "gh extension install ${extension}"
+        gh extension install "${extension}"
+    done
 }

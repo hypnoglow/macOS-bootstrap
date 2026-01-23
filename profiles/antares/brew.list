@@ -4,10 +4,10 @@
 #    e.g. 'homebrew/dupes/vim'.
 
 asdf
+atlassian/homebrew-acli/acli
 awscli
 bash
 bettertouchtool
-claude
 coreutils
 curl
 direnv
@@ -30,10 +30,10 @@ google-chrome
 grpcurl
 helm
 homebrew/cask/docker
-homebrew/cask/font-anonymice-nerd-font
+homebrew/cask/font-anonymice-nerd-font # do I still need it?
 htop
 int128/kubelogin/kubelogin
-iterm2
+iterm2 # legacy, switched to ghossty
 jetbrains-toolbox
 jordanbaird-ice
 jq
@@ -72,3 +72,18 @@ watch
 wget
 zoxide
 zsh
+
+#
+# AI
+#
+
+homebrew/cask/claude
+homebrew/cask/claude-code
+homebrew/cask/codex
+
+#
+# Experimental
+#
+
+tailspin
+lazyjournal
